@@ -1,0 +1,59 @@
+.notice-wrap {
+  margin: 0;
+  height: 22px;
+  font-family: 'SFProRounded';
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: rgb(0, 0, 0);
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: -12px;
+    z-index: 3;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgb(38, 4, 41) 30%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: -12px;
+    z-index: 3;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(
+      to left,
+      rgb(38, 4, 41) 30%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .notice-item {
+    min-width: 100%;
+    white-space: nowrap;
+    position: absolute;
+    margin: 0;
+    color: #fff;
+    transition: top 0s ease, opacity 0s ease, transform 0s linear;
+
+    &:nth-of-type(1) {
+      top: 100%;
+    }
+    &:nth-of-type(2) {
+      top: 100%;
+    }
+  }
+}

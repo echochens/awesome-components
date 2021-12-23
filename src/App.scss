@@ -1,0 +1,10 @@
+.carousel-wrapper {
+  height: 100px;
+}
+.cdn {
+  width: 295px;
+  height: 314px;
+  @include flex-center;
+  @include cdnBg("dialog-rules@2x");
+  // @include bg('download-bg-tiya')
+}

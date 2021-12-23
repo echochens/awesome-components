@@ -1,0 +1,100 @@
+// 布局
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+
+@mixin abs-center() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin abs-l-center() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  @content;
+}
+
+@mixin abs-full() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin fixed-center() {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin fixed-full() {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+// 快捷设置
+@mixin bg($url: "", $suffix: ".png") {
+  $url: "~@/assets/image/" + $url + $suffix;
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  @content;
+}
+
+@mixin text-hidden($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+@mixin had-img() {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// 效果
+@mixin stroke-text($bg: #fff, $weight: 4px, $offsetX: 0, $offsetY: 0) {
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    left: $offsetX;
+    top: $offsetY;
+    -webkit-text-stroke: $bg $weight;
+    z-index: -1;
+  }
+}
+
+@mixin shadow-button(
+  $bg: rgb(65, 184, 131),
+  $heigh: 2px,
+  $pushOffset: 1px,
+  $activeBg: $bg
+) {
+  display: inline-block;
+  box-shadow: 0 $heigh 0 $bg;
+
+  &:active {
+    box-shadow: 0 ($heigh - $pushOffset) 0 $activeBg;
+    transform: translateY($pushOffset);
+  }
+}

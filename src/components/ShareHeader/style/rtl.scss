@@ -1,0 +1,45 @@
+.share-wrap {
+
+  .content-wrap {
+
+    .download {
+
+      .info {
+        margin: 0;
+        margin-right: 8px;
+      }
+    }
+
+    .poster {
+
+      .head {
+        justify-content: flex-start;
+        padding: 10px 20px 16px;
+      }
+
+      .title {
+        padding: 15px 32px 0;
+      }
+
+      .cover-wrap {
+        left: -50%;
+        transform: translateX(50%);
+      }
+
+      .auther-rank {
+
+        .rank {
+          margin-top: 7px;
+
+          em {
+            margin-right: 8px;
+          }
+
+          span {
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+  }
+}

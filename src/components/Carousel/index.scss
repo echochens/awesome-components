@@ -1,0 +1,67 @@
+@import '@/assets/scss/index.scss';
+
+.carousel {
+  @include abs-l-center;
+  width: 336px;
+  height: 90px;
+  top: 70px;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0px;
+
+    &--active {
+      animation: carouselAnime var(--duration) linear infinite normal;
+    }
+  }
+
+  .inner {
+    &__img-box {
+      @include had-img;
+      width: 70px;
+      height: 70px;
+      margin: 0 15px;
+      position: relative;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 72px;
+        height: 70px;
+        border-radius: 10px;
+        border: .5px solid #272dbd;
+        box-sizing: border-box;
+      }
+      
+      &::before {
+        top: 0;
+        background-image: linear-gradient(to bottom, #f3fff3, #fffc9b);
+        z-index: -1;
+      }
+
+      &::after {
+        top: 4px;
+        background-image: linear-gradient(to right, #35b8f0, #91ffbf, #6cffa9);
+        z-index: -2;
+      }
+    }
+  }
+}
+
+@keyframes carouselAnime {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(var(--offet));
+  }
+}

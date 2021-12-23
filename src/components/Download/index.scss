@@ -1,0 +1,100 @@
+@import '@/assets/scss/index.scss';
+
+.download-wrap {
+  @include fixed-full();
+  @include flex-center();
+  z-index: 10;
+  font-family: 'SFProRounded-Medium', 'PingFangSC-Medium';
+
+  .download-bg {
+    @include abs-full();
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    z-index: -1;
+  }
+}
+
+.download-wrap {
+  font-family: 'SFProRounded-Medium', 'PingFangSC-Medium';
+  .download-box {
+    @include flex-center() {
+      flex-direction: column;
+      justify-content: unset;
+    }
+    width: 311px;
+    height: 323px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    position: relative;
+    padding-top: 155px;
+    animation: modalScale 0.3s cubic-bezier(1, 0, 0, 1.5);
+
+    &::before {
+      content: '';
+      width: 311px;
+      height: 179px;
+      position: absolute;
+      left: 0;
+      top: -45px;
+    }
+
+    &.tiya {
+      &::before {
+        @include bg('download-bg-tiya')
+        // background: url('./../../image/download-bg-tiya.png') center center no-repeat;
+        // background-size: 100%;
+      }
+    }
+
+    &.zy {
+      &::before {
+        @include bg('download-bg-zy')
+        // background: url('./../../image/download-bg-zy.png') center center no-repeat;
+        // background-size: 100%;
+      }
+    }
+
+    .download-text {
+      font-size: 17px;
+      line-height: 24px;
+      text-align: center;
+      color: #000000;
+      margin-bottom: 16px;
+
+      > p {
+        margin: 0;
+      }
+    }
+
+    .confirm {
+      @include flex-center();
+      width: 263px;
+      height: 44px;
+      border-radius: 22px;
+      background-image: linear-gradient(99deg, #3ce6d0, #79f19e);
+      font-size: 17px;
+      margin-bottom: 16px;
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+
+    .cancel {
+      font-size: 14px;
+      color: rgba($color: #000000, $alpha: 0.7);
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+@keyframes modalScale {
+  0% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
